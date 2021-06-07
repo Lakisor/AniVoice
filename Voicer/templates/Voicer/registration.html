@@ -1,14 +1,27 @@
-{% load static %} {% extends "base.html" %}
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+{% extends "Voicer/base.html" %}
+{% load static % }
+{{% block content %}
+    <div class="registr">
+        <h1 style="text-align: center; width: 765px;">Регестрация</h1>
+        <form class="form-signup" action="" method="POST">
+            {% csrf_token %}
 
-<body>
+            <label class="username">
+                <h2>Username</h2> {{form.username}}
+            </label>
 
-</body>
+            <label class="password">
+                <h2>Пароль</h2> {{form.password1}}
+            </label>
+            <label class="password-verif">
+                <h2>Подтвердить пароль</h2> {{form.password2}}
+            </label>
+            <div class="reg">
+                <input type='submit' class="btn btn-success" name="Регестрация"></input>
+            </div>
+            
+        </form>
+    </div>
 
-</html>
+{% endblock content %}
