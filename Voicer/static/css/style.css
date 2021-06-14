@@ -1,33 +1,36 @@
+body {
+    background: #EDEEF0;
+
+}
 .d-flex {
-    width: 300px;
+    width: 300px; 
     height: 50px;
     left: 0;
     right: 0;
     margin: 0 auto;
 }
 .registr{
-    background: #d6d6d6;
-    width: 900px;
-    height: 700px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    background: #F6F6F6;
+    width: 591px;
+    height: 473px;
     left: 0;
     right: 0;
     margin: 0 auto;
     
 }
-
+.reg-main{
+    padding-top: 20px;
+}
 .username{
-    width: 765px;
-    height: 90px;
-    text-align: center;
     left: 0;
     right: 0;
     margin: 0 auto;
+
 }
 .password{
-    width: 765px;
-    height: 90px;
-    text-align: center;
-    left: 0;
+   
+    left: 100px;
     right: 0;
     margin: 0 auto;
 }
@@ -47,5 +50,25 @@
     right: 0;
     margin: 0 19px auto;
 }
+.registrs {
+    text-align: center;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 44px;
+}
 
+.form-signup{
+    text-align: center;
+}
 
+.submitbtn {
+    padding-top: 10px;
+    clear: none ;
+    
+}
+.button-reg{
+    border-radius: 22px;
+
+}

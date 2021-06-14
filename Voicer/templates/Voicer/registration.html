@@ -2,26 +2,33 @@
 {% extends "Voicer/base.html" %}
 {% load static % }
 {{% block content %}
+<div class="container-fluid reg-main">
     <div class="registr">
-        <h1 style="text-align: center; width: 765px;">Регестрация</h1>
+        <h1 class="registrs" >Регистрация</h1>
         <form class="form-signup" action="" method="POST">
             {% csrf_token %}
+            <h2 style="padding-bottom: 2px;">Username</h2>
+            {{form.username}}
 
-            <label class="username">
-                <h2>Username</h2> {{form.username}}
-            </label>
-
-            <label class="password">
-                <h2>Пароль</h2> {{form.password1}}
-            </label>
-            <label class="password-verif">
-                <h2>Подтвердить пароль</h2> {{form.password2}}
-            </label>
-            <div class="reg">
-                <input type='submit' class="btn btn-success" name="Регестрация"></input>
+            <h2>Пароль</h2> 
+            {{form.password1}}
+            
+            <h2>Подтвердить пароль</h2>
+            {{form.password2}}
+            
+            <div class="submitbtn">
+                <input type='submit' class="btn btn-success button-reg" value="Регистрация"></input>
             </div>
+            
+            {{form.errors}}
             
         </form>
     </div>
 
+</div>
+<script>
+    document.getElementById("id_username").placeholder = "Имя";
+    document.getElementById("id_password1").placeholder = "От 9 символов";
+    document.getElementById("id_password2").placeholder = "Подтвердить";
+</script>
 {% endblock content %}
