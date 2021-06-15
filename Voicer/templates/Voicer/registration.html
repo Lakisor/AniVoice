@@ -7,17 +7,17 @@
         <h1 class="registrs" >Регистрация</h1>
         <form class="form-signup" action="" method="POST">
             {% csrf_token %}
-            <h2 style="padding-bottom: 2px;">Username</h2>
+            <h4 style="padding-bottom: 2px;">Имя пользователя</h4>
             {{form.username}}
 
-            <h2>Пароль</h2> 
+            <h4>Пароль</h4> 
             {{form.password1}}
             
-            <h2>Подтвердить пароль</h2>
+            <h4>Подтвердить пароль</h4>
             {{form.password2}}
             
             <div class="submitbtn">
-                <input type='submit' class="btn btn-success button-reg" value="Регистрация"></input>
+                <input type='submit' class="btn btn-success button-reg" value="Зарегистрироваться"></input>
             </div>
             
             {{form.errors}}

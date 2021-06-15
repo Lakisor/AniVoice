@@ -74,3 +74,8 @@ def registration(request):
     context = {'form': form}
 
     return render(request, 'Voicer/registration.html', context)
+
+
+def usercab(request, username):
+    context = {}
+    return render(request, 'Voicer/usercab.html', context)

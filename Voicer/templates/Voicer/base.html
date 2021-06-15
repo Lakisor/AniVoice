@@ -20,10 +20,10 @@
 <body>
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-            <a href="/" class="navbar-brand">AniVoice</a>
+            <a href="/" class="navbar-brand"><h1>AniVoice</h1></a>
             <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit"><i class="fas fa-search">Search</i></button>
+                <button class="btn btn-outline-success" type="submit"><i class="fas fa-search search"></i></button>
             </form>
             {% if user.is_authenticated %}
             <ul>
@@ -31,7 +31,7 @@
                     <a href="{% url 'logout' %}" class="nav-link logout">Выйти</a>
                 </li>
                 <li>
-                    <a class="nav-link user" href="/">User: {{ user.get_username }}</a>
+                    <a class="nav-link user" href="{% url 'usercab' username=request.user %}">User: {{ user.get_username }}</a>
                 </li>
             </ul>
             {% else %}
