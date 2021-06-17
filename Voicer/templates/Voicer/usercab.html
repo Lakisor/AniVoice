@@ -1,7 +1,13 @@
 {% extends "Voicer/base.html" %}
 {% load static %}
 {% block content %}
-<div>
-
+<div class="container-fluid" style="padding-top: 15px;">
+    <div class="user-main" style="color: #C4C4C4">
+        <h2 class="LK" style="text-align: center;">Личный кабинет</h2>
+        <div class="Usre-stat">
+            <h2 class="text-main" style="text-align:center;">{{user.get_username}} | <button class="change-username text-main">Изменить имя</button></h2>
+            <h2 class="text-main" style="text-align:center;">Пароль | <button class="change-username text-main">Изменить пароль</button></h2>   
+        </div>
+    </div>
 </div>
 {% endblock %}

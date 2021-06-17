@@ -1,0 +1,20 @@
+{% extends 'Voicer/base.html' %}
+{% load static %}
+{% block content %}
+
+{% include "../pagination.html" with page=animes %}
+
+<table cols="3">
+    {% for anime in animes %}
+        <tr>
+        <td>
+            {{ anime.title }}
+            <img src="{{ anime.pic_title }}" alt="Изображение не найдено">
+        </td>
+    </tr>
+    {% endfor %}
+    </table>
+
+{% include "../pagination.html" with page=animes %}
+
+{% endblock %}

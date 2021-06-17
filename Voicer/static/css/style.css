@@ -88,3 +88,38 @@ body {
     text-align: center;
     padding-top: 23px;
 }
+
+.LK {
+    font-family: Rosario;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 44px;
+}
+
+.text-main { 
+    font-family: Rasa;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.user-main {
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 740px;
+    height: 485px;
+    background: #E1E1E1;
+}
+.change-username {
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    /* отображаем курсор в виде руки при наведении; некоторые
+    считают, что необходимо оставлять стрелочный вид для кнопок */
+    cursor: pointer;
+  }

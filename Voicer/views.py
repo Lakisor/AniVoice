@@ -1,3 +1,4 @@
+from django.core import paginator
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import *
 from .forms import CreateUserForm, LoginForm
@@ -8,6 +9,7 @@ from .decorators import unauthenticated_user
 from django.db.models import Q
 from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponse
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def home(request):
     return render(request, 'Voicer/home.html')
@@ -79,3 +81,19 @@ def registration(request):
 def usercab(request, username):
     context = {}
     return render(request, 'Voicer/usercab.html', context)
+
+
+def anime_list(request):
+    object_list = Anime.objects.all().order_by('title')
+    p = Paginator(object_list, 27)
+    page_num = request.GET.get('page', 1)
+
+    try:
+        page = p.page(page_num)
+    except EmptyPage:
+        page = p.page(1)
+    except PageNotAnInteger:
+        page = p.page(1)
+        
+    return render(request, 'Voicer/animes.html', context={'animes':page})
+
