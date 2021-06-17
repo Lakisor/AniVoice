@@ -4,16 +4,14 @@
 
 {% include "../pagination.html" with page=animes %}
 
-<table cols="3">
-    {% for anime in animes %}
-        <tr>
-        <td>
-            {{ anime.title }}
-            <img src="{{ anime.pic_title }}" alt="Изображение не найдено">
-        </td>
-    </tr>
-    {% endfor %}
-    </table>
+
+{% for anime in animes %}
+    <article>
+        <span><img src="{{ anime.pic_title }}" alt="Изображение не найдено"></span>
+        <span>{{ anime.title }}</span>
+    </article>
+{% endfor %}
+
 
 {% include "../pagination.html" with page=animes %}
 
