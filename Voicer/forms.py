@@ -1,8 +1,7 @@
 from django import forms
 from django.forms import ModelForm
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.models import User
-from .models import *
 
 
 class LoginForm(forms.Form):
@@ -25,3 +24,13 @@ class CreateUserForm(UserCreationForm):
             if cd['password1'] != cd['password2']:
                 raise forms.ValidationError("Пароль не правильный")
             return cd['password2']
+
+class EditingUserForm(UserChangeForm):
+    class Meta:
+        model = User
+        fields = ['username', 'password']
+        widgets = {
+            'username': forms.TextInput(attrs={'class': 'form-input'}),
+            'password': forms.PasswordInput(attrs={'class': 'form-input'}),
+        }
+       

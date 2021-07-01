@@ -1,13 +1,13 @@
 from django.core import paginator
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import *
-from .forms import CreateUserForm, LoginForm
+from .forms import CreateUserForm, LoginForm, EditingUserForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .decorators import unauthenticated_user
 from django.db.models import Q
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
@@ -79,7 +79,11 @@ def registration(request):
 
 
 def usercab(request, username):
-    context = {}
+    if request.method == 'POST':
+        form = EditingUserForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+    context = {'form': form}
     return render(request, 'Voicer/usercab.html', context)
 
 
