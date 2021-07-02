@@ -1,0 +1,12 @@
+{% extends "Voicer/base.html" %}
+{% load static % }
+{{% block content %}
+<div class="change-username">
+    <form method="POST">
+        {% csrf_token %}
+        <h1>Новое имя</h1>
+        {{form.username}}
+        <input type="submit" value="ОК">
+    </form>
+</div>
+{% endblock content %}

@@ -10,4 +10,6 @@ urlpatterns = [
     path("logout/", user_logout, name="logout"),
     path("user/<str:username>/", usercab, name='usercab'),
     path("animes/", anime_list, name='animes'),
+    path("editusername/<str:username>/", editusername, name="editusername"),
+    path("editpassword/<str:username>/", editpassword, name="editpass"),
 ]

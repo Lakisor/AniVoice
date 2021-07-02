@@ -1,13 +1,13 @@
 from django.core import paginator
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import *
-from .forms import CreateUserForm, LoginForm, EditingUserForm
+from .forms import CreateUserForm, LoginForm, EditingUserForm, EdititngUserPasswordForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .decorators import unauthenticated_user
 from django.db.models import Q
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
@@ -75,16 +75,51 @@ def registration(request):
                 return redirect('home')
     context = {'form': form}
 
-    return render(request, 'Voicer/registration.html', context)
+    return render(request, 'registration/registration.html', context)
 
-
+"""
+блок с данными пользователя (начало) 
+"""
 def usercab(request, username):
+    context = {}
+    return render(request, 'profile/usercab.html', context)
+
+#измененеие ника
+def editusername(request, username):
     if request.method == 'POST':
+        #объявляем первую переменую "form" если она нам нужна 
         form = EditingUserForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
-    context = {'form': form}
-    return render(request, 'Voicer/usercab.html', context)
+            return redirect('home')
+    else:
+        #во всех остальных случаях будем брать образец юзера кекв
+        form = EditingUserForm(instance=request.user)
+    context = {"form":form}
+    return render(request, 'profile/editingusername.html', context)
+
+#изменение пароля
+def editpassword(request, username):
+    #тоже самое только для пароля
+    if request.method == 'POST':
+            #объявляем первую переменую "form" если она нам нужна 
+        form = PasswordChangeForm(request.POST, user = request.user)
+        print(form.is_valid())
+        print(form.error_messages)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+        
+    else:
+        #во всех остальных случаях будем брать образец юзера кекв
+        form = PasswordChangeForm(user = request.user)
+        
+    context = {"form":form}
+    return render(request, 'profile/editingpassword.html', context)
+
+"""
+блок с данными пользователя (конец) 
+"""
 
 
 def anime_list(request):

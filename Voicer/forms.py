@@ -1,6 +1,7 @@
 from django import forms
+from django.db.models import fields
 from django.forms import ModelForm
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 from django.contrib.auth.models import User
 
 
@@ -28,9 +29,12 @@ class CreateUserForm(UserCreationForm):
 class EditingUserForm(UserChangeForm):
     class Meta:
         model = User
-        fields = ['username', 'password']
+        fields = ['username']
         widgets = {
             'username': forms.TextInput(attrs={'class': 'form-input'}),
-            'password': forms.PasswordInput(attrs={'class': 'form-input'}),
         }
-       
+
+class EdititngUserPasswordForm(PasswordChangeForm):
+    class Meta:
+        model = User
+        fields = ['old_password', 'new_password1', 'new_password2 ']
