@@ -10,7 +10,8 @@ from django.db.models import Q
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
+from django.contrib import messages
+from django.contrib.auth import update_session_auth_hash
 def home(request):
     return render(request, 'Voicer/home.html')
 
@@ -99,23 +100,22 @@ def editusername(request, username):
     return render(request, 'profile/editingusername.html', context)
 
 #изменение пароля
-def editpassword(request, username):
-    #тоже самое только для пароля
+def editpassword(request):
     if request.method == 'POST':
-            #объявляем первую переменую "form" если она нам нужна 
-        form = PasswordChangeForm(request.POST, user = request.user)
-        print(form.is_valid())
-        print(form.error_messages)
+        form = PasswordChangeForm(request.user, request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
+            update_session_auth_hash(request, user)  # Important!
+            messages.success(request, 'Your password was successfully updated!')
             return redirect('home')
-        
+        else:
+            messages.error(request, 'Please correct the error below.')
     else:
-        #во всех остальных случаях будем брать образец юзера кекв
-        form = PasswordChangeForm(user = request.user)
-        
-    context = {"form":form}
-    return render(request, 'profile/editingpassword.html', context)
+        form = PasswordChangeForm(request.user)
+    return render(request, 'profile/password_change_form.html', {
+        'form': form
+    })
+
 
 """
 блок с данными пользователя (конец) 

@@ -7,7 +7,7 @@
         <div class="Usre-stat">
                 
                 <h2 class="text-main" style="text-align:center;">{{user.get_username}} | <a href="{% url 'editusername' username=request.user%}" class="change-username text-main">Изменить имя</a></h2>
-                <h2 class="text-main" style="text-align:center;">Пароль | <a href="{% url 'editpass' username=request.user%}" class="change-username text-main">Изменить пароль</a></h2>  
+                <h2 class="text-main" style="text-align:center;">Пароль | <a href="{% url 'editpass'%}" class="change-username text-main">Изменить пароль</a></h2>  
                 
         </div>
     </div>

@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from django.contrib.auth.views import LogoutView
+from django.contrib.auth.views import LogoutView, PasswordChangeView, PasswordChangeDoneView
 from .views import *
 
 urlpatterns = [
@@ -11,5 +11,5 @@ urlpatterns = [
     path("user/<str:username>/", usercab, name='usercab'),
     path("animes/", anime_list, name='animes'),
     path("editusername/<str:username>/", editusername, name="editusername"),
-    path("editpassword/<str:username>/", editpassword, name="editpass"),
+    path("editpassword/", editpassword, name="editpass"),
 ]
