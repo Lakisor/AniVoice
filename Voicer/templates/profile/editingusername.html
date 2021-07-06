@@ -4,9 +4,18 @@
 <div class="change-username">
     <form method="POST">
         {% csrf_token %}
-        <h1>Новое имя</h1>
-        {{form.username}}
-        <input type="submit" value="ОК">
+        <div class="container-fluid" style="padding-top: 15px;">
+            <div class="username">
+                <h1>Новое имя</h1>
+                {{form.username}}
+                <input class="btn btn-success button-reg" style="position: absolute; top: 269px; left: 900px;" type="submit" value="изменить имя">
+            </div>
+        </div>        
+        
     </form>
 </div>
+<script>
+    document.getElementById("id_username").placeholder = "Новое имя";
+    
+</script>
 {% endblock content %}

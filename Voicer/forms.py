@@ -33,8 +33,14 @@ class EditingUserForm(UserChangeForm):
         widgets = {
             'username': forms.TextInput(attrs={'class': 'form-input'}),
         }
-
 class EdititngUserPasswordForm(PasswordChangeForm):
     class Meta:
         model = User
         fields = ['old_password', 'new_password1', 'new_password2 ']
+        
+
+    def clean_password2(self):
+        cd = self.cleaned_date
+        if cd['password1'] != cd['password2']:
+            raise forms.ValidationError("Пароль не правильный")
+        return cd['password2'] 
