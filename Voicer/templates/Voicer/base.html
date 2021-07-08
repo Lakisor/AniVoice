@@ -3,6 +3,8 @@
 <html lang="en">
 
 <head>
+    {% block head %}
+    {% endblock %}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Rosario:wght@300&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Rasa&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css2?family=Rasa&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/3f214cf825.js" crossorigin="anonymous"></script>
     <title>AniVoice</title>
 </head>
@@ -25,6 +27,7 @@
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
             <a href="/" class="navbar-brand"><h1>AniVoice</h1></a>
+            <a href="create_tour/" class="navbar"><h5>Создать турнир</h5></a>
             <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit"><i class="fas fa-search search"></i></button>
@@ -39,8 +42,8 @@
                 </li>
             </ul>
             {% else %}
-                <a href="{% url 'login' %}"><button class="btn btn-light">Вход</button></a> |
-                <a href="{% url 'registration' %}"><button class="btn btn-light">Регистрация</button></a>
+            <a href="{% url 'login' %}"><button class="btn btn-light">Вход</button></a> |
+            <a href="{% url 'registration' %}"><button class="btn btn-light">Регистрация</button></a>
             {% endif %}
         </div>
     </nav>

@@ -136,3 +136,17 @@ def anime_list(request):
         
     return render(request, 'Voicer/animes.html', context={'animes':page})
 
+
+def create_tour(request):
+    object_list = Anime.objects.all().order_by('title')
+    p = Paginator(object_list, 27)
+    page_num = request.GET.get('page', 1)
+
+    try:
+        page = p.page(page_num)
+    except EmptyPage:
+        page = p.page(1)
+    except PageNotAnInteger:
+        page = p.page(1)
+        
+    return render(request, 'Voicer/create_tour.html', context={'animes':page})
