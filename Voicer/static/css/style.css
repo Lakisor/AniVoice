@@ -74,7 +74,7 @@ body {
 }
 .button-reg{
     border-radius: 22px;
-
+    
 }
 
 .login {
@@ -122,4 +122,39 @@ body {
     /* отображаем курсор в виде руки при наведении; некоторые
     считают, что необходимо оставлять стрелочный вид для кнопок */
     cursor: pointer;
+<<<<<<< Updated upstream
   }
+=======
+}
+
+.username{
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    background: #F6F6F6;
+    width: 491px;
+    height: 203px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 36px;
+}
+.password{
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    background: #F6F6F6;
+    width: 491px;
+    height: 403px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 26px;
+}
+
+.oldspice{
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 109%;
+    line-height: 14px;
+}
+>>>>>>> Stashed changes
