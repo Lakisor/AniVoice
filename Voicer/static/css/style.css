@@ -32,7 +32,6 @@ body {
 
 }
 .password{
-   
     left: 100px;
     right: 0;
     margin: 0 auto;
@@ -122,10 +121,9 @@ body {
     /* отображаем курсор в виде руки при наведении; некоторые
     считают, что необходимо оставлять стрелочный вид для кнопок */
     cursor: pointer;
-<<<<<<< Updated upstream
-  }
-=======
+
 }
+
 
 .username{
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
@@ -157,4 +155,18 @@ body {
     font-size: 109%;
     line-height: 14px;
 }
->>>>>>> Stashed changes
+.Box {
+    width: 500px; 
+    height: 100%; 
+    background-color: #ffffff; 
+    border: 2px solid #D4D4D4; 
+    border-radius: 10px; 
+    box-shadow: 0 0 15px #A9A9A9; 
+    padding: 20px;
+}
+
+.Clicked {
+    background-color: black;
+    color: white;
+}
+

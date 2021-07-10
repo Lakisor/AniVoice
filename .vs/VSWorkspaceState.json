@@ -1,10 +1,13 @@
 {
   "ExpandedNodes": [
     "",
+    "\\AniVoice",
     "\\Voicer",
+    "\\Voicer\\static",
+    "\\Voicer\\static\\js",
     "\\Voicer\\templates",
-    "\\Voicer\\templates\\registration"
+    "\\Voicer\\templates\\Voicer"
   ],
-  "SelectedNode": "\\Voicer\\views.py",
+  "SelectedNode": "\\Voicer\\templates\\Voicer\\base.html",
   "PreviewInSolutionExplorer": false
 }
