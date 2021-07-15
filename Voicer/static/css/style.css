@@ -12,18 +12,6 @@ body {
     right: 0;
     margin: 0 auto;
 }
-.background-block{
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    background: #F6F6F6;
-    width: auto;
-    height: auto;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-}
-
-
-
 .registr{
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
     background: #F6F6F6;
@@ -44,7 +32,6 @@ body {
 
 }
 .password{
-   
     left: 100px;
     right: 0;
     margin: 0 auto;
@@ -86,7 +73,7 @@ body {
 }
 .button-reg{
     border-radius: 22px;
-
+    
 }
 
 .login {
@@ -131,12 +118,55 @@ body {
     font: inherit;
     color: inherit;
     background-color: transparent;
+    /* отображаем курсор в виде руки при наведении; некоторые
+    считают, что необходимо оставлять стрелочный вид для кнопок */
     cursor: pointer;
-  }
+
+}
 
 
+.username{
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    background: #F6F6F6;
+    width: 491px;
+    height: 203px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 36px;
+}
+.password{
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    background: #F6F6F6;
+    width: 491px;
+    height: 403px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 26px;
+}
+
+.oldspice{
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 109%;
+    line-height: 14px;
+}
+.Box {
+    width: 500px; 
+    height: 100%; 
+    background-color: #ffffff; 
+    border: 2px solid #D4D4D4; 
+    border-radius: 10px; 
+    box-shadow: 0 0 15px #A9A9A9; 
+    padding: 20px;
+}
 
 .Clicked {
     background-color: black;
     color: white;
 }
+
