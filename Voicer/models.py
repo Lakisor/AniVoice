@@ -1,9 +1,9 @@
 from django.db import models
 from django.db.models.deletion import CASCADE
 from django.db.models.fields import related
-from django.contrib.auth.models import User #ladno
+from django.contrib.auth.models import User
 from django.db import IntegrityError
-# Create your models here.
+
 
 class Anime(models.Model):
     title = models.CharField(max_length=350)
@@ -13,7 +13,7 @@ class Anime(models.Model):
         return self.title
 
 class Tournament(models.Model):
-    count_of_animes = models.IntegerField(default=16) # на странице конструктора должен быть типо ещё выбор количества (степень двойки > 16 ясно)
+    count_of_animes = models.IntegerField(default=16) # degree of 2 (>16)
     votes = models.IntegerField(default=0)
     name = models.CharField(max_length=150)
     author = models.ForeignKey(User, related_name="user_tour", on_delete=models.CASCADE)

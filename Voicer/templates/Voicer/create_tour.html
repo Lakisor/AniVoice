@@ -4,21 +4,44 @@
 {% block content %}
 
 {% include "../pagination.html" with page=animes %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/create_tour.css' %}?{% now 'U' %}">
+<div class="container">
+    <div class="background-block" >
+        <div class="row">
+            <div class="col choose-anime">
+                <h4 class="name-chosse">Выбрать аниме</h4>
+                <div class="Box" >
+                    {% for anime in animes %}
+                    <article id="{{ anime.id }}" onclick="Choose( {{anime.id}} )">
+                        <span><img width="56" height="78" src="{{ anime.pic_title }}" alt="Изображение не найдено"></span>
+                        <span >{{ anime.title }}</span>
+                    </article>
+                    {% endfor %}
+                
+                </div>
+            </div>
+            <div class="col" style="padding-top: 15%;">
+                <h4 class="name-chosse">Количество аниме</h4>
+                <div class="number">
+                    <p><strong>512</strong></p>
+                </div>
+            </div>
+            
+            
+            <div class="col chosen-anime">
+                <h4 class="name-chosse">Выбранное аниме</h4>
+                <div class="Box" id="added">
+            
+                </div>
+            </div>
 
-<div class="Box">
-    {% for anime in animes %}
-    <article id="{{ anime.id }}" onclick="Choose({{anime.id}})">
-        <span><img width="56" height="78" src="{{ anime.pic_title }}" alt="Изображение не найдено"></span>
-        <span >{{ anime.title }}</span>
-    </article>
-    {% endfor %}
-
+        </div>
+    
+        <button onclick="Add()">Выбрать</button>
+    
+    </div>
 </div>
 
-<div class="Box" id="added">
-
-</div>
-<button onclick="Add()">Выбрать</button>
 
 <script type="text/javascript" src={% static "js/script.js" %}></script>
 {% include "pagination.html" with page=animes %}

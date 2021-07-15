@@ -4,10 +4,10 @@
     "\\AniVoice",
     "\\Voicer",
     "\\Voicer\\static",
-    "\\Voicer\\static\\js",
+    "\\Voicer\\static\\css",
     "\\Voicer\\templates",
     "\\Voicer\\templates\\Voicer"
   ],
-  "SelectedNode": "\\Voicer\\templates\\Voicer\\base.html",
+  "SelectedNode": "\\Voicer\\models.py",
   "PreviewInSolutionExplorer": false
 }

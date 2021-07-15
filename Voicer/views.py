@@ -40,7 +40,7 @@ def user_login(request):
 @unauthenticated_user
 def login_page(request):
     if request.method == 'POST':
-        username = request.POST.get('username') #тут например типо мы уже ввели данные, но надо ещё сделать саму обработку страницы логин
+        username = request.POST.get('username') 
         password = request.POST.get('password')
 
         user = authenticate(request, username=username, password=password)
@@ -78,28 +78,24 @@ def registration(request):
 
     return render(request, 'registration/registration.html', context)
 
-"""
-блок с данными пользователя (начало) 
-"""
+
 def usercab(request, username):
     context = {}
     return render(request, 'profile/usercab.html', context)
 
-#измененеие ника
+
 def editusername(request, username):
-    if request.method == 'POST':
-        #объявляем первую переменую "form" если она нам нужна 
+    if request.method == 'POST': 
         form = EditingUserForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
             return redirect('home')
     else:
-        #во всех остальных случаях будем брать образец юзера кекв
         form = EditingUserForm(instance=request.user)
     context = {"form":form}
     return render(request, 'profile/editingusername.html', context)
 
-#изменение пароля
+
 def editpassword(request):
     if request.method == 'POST':
         form = PasswordChangeForm(request.user, request.POST)
@@ -116,10 +112,6 @@ def editpassword(request):
         'form': form
     })
 
-
-"""
-блок с данными пользователя (конец) 
-"""
 
 
 def anime_list(request):
@@ -139,7 +131,7 @@ def anime_list(request):
 
 def create_tour(request):
     object_list = Anime.objects.all().order_by('title')
-    p = Paginator(object_list, 27)
+    p = Paginator(object_list, 8)
     page_num = request.GET.get('page', 1)
 
     try:
