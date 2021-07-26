@@ -1,4 +1,4 @@
-/* название колонок ("Выбрать аниме" и "Выбранное аниме") */
+/* название колонок */
 .name-chosse{
     background: #DFDCE4;
     border-radius: 10px;
@@ -7,6 +7,11 @@
     padding-bottom: 5px;
 }
 
+.btn-tour{
+    margin: 2% 0 0 26%;
+    text-align: center;
+    font-size: 250%;
+}
 
 
 
@@ -25,6 +30,7 @@
     background: rgba(230, 229, 226, 0.53);
     border-radius: 50px;
     text-align: center;
-    margin-left: 40%;
-    width: 50px;
+    margin-left: 30%;
+    width: 150px;
+    font-size: 250%;
 }

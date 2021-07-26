@@ -12,13 +12,15 @@ class Anime(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        ordering = ['title']
+
 class Tournament(models.Model):
     count_of_animes = models.IntegerField(default=16) # degree of 2 (>16)
     votes = models.IntegerField(default=0)
     name = models.CharField(max_length=150)
     author = models.ForeignKey(User, related_name="user_tour", on_delete=models.CASCADE)
     animes = models.ManyToManyField(Anime)
- 
     def upvote(self, User):
         try:
             self.votes += 1

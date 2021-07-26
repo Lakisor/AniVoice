@@ -1,6 +1,7 @@
 let choosed = []
 let added = []
 
+
 function Choose(id) {
     obj = document.getElementById(id)
     index = choosed.indexOf(obj);
@@ -18,7 +19,6 @@ function Add() {
     added = [].concat(choosed);
     choosed.length = 0;
     kuda = document.getElementById('added')
-
     for (let i = 0; i <= added.length; i++) {
         if (added.length > 0) {
             obj = added[i];

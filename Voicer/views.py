@@ -8,10 +8,11 @@ from django.contrib.auth.decorators import login_required
 from .decorators import unauthenticated_user
 from django.db.models import Q
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
+import json
 def home(request):
     return render(request, 'Voicer/home.html')
 
@@ -133,7 +134,10 @@ def create_tour(request):
     object_list = Anime.objects.all().order_by('title')
     p = Paginator(object_list, 8)
     page_num = request.GET.get('page', 1)
-
+    tournament = Tournament
+    
+    
+    
     try:
         page = p.page(page_num)
     except EmptyPage:
@@ -141,4 +145,4 @@ def create_tour(request):
     except PageNotAnInteger:
         page = p.page(1)
         
-    return render(request, 'Voicer/create_tour.html', context={'animes':page})
+    return render(request, 'Voicer/create_tour.html', context={'animes':page, 'tournament':tournament})

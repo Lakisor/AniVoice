@@ -13,4 +13,5 @@ urlpatterns = [
     path("editusername/<str:username>/", editusername, name="editusername"),
     path("editpassword/", editpassword, name="editpass"),
     path("create_tour/", create_tour, name="create_tour"),
+    
 ]

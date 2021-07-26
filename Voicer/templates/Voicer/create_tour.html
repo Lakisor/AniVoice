@@ -3,47 +3,58 @@
 
 {% block content %}
 
-{% include "../pagination.html" with page=animes %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/create_tour.css' %}?{% now 'U' %}">
+{% include "../pagination.html" with page=animes %}
 <div class="container">
-    <div class="background-block" >
+    <div class="background-block">
         <div class="row">
+            <!-- блок со списком всех аниме -->
             <div class="col choose-anime">
+
                 <h4 class="name-chosse">Выбрать аниме</h4>
-                <div class="Box" >
+                <div class="Box">
+
                     {% for anime in animes %}
                     <article id="{{ anime.id }}" onclick="Choose( {{anime.id}} )">
                         <span><img width="56" height="78" src="{{ anime.pic_title }}" alt="Изображение не найдено"></span>
-                        <span >{{ anime.title }}</span>
+                        <span>{{ anime.title }}</span>
                     </article>
                     {% endfor %}
-                
                 </div>
+
             </div>
+
+            <!-- функциональные блоки -->
             <div class="col" style="padding-top: 15%;">
+
                 <h4 class="name-chosse">Количество аниме</h4>
                 <div class="number">
-                    <p><strong>512</strong></p>
+                    <p class="update-num"><strong>{{tournament.count_of_animes}}</strong></p>
                 </div>
+
+                <div style="padding-top: 60%;">
+                    <button class="btn-tour btn btn-secondary" style="margin-left: 28%;">Рандом</button>
+                    <button class="btn-tour btn btn-success" onclick="Add()">Выбрать</button>
+                </div>
+
             </div>
-            
-            
+
+
+            <!-- списко выбранного аниме -->
             <div class="col chosen-anime">
                 <h4 class="name-chosse">Выбранное аниме</h4>
                 <div class="Box" id="added">
-            
+
                 </div>
             </div>
 
         </div>
-    
-        <button onclick="Add()">Выбрать</button>
-    
+        {% include "pagination.html" with page=animes %}
+
+        {% endblock %}
     </div>
 </div>
 
 
-<script type="text/javascript" src={% static "js/script.js" %}></script>
-{% include "pagination.html" with page=animes %}
 
-{% endblock %}
+<script src="{% static 'js/script.js' %}"></script>
